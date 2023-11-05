@@ -3,6 +3,8 @@ import App from "../App";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
+import AddFood from "../pages/AddFood";
 
 const routes = createBrowserRouter([
     {
@@ -21,6 +23,10 @@ const routes = createBrowserRouter([
             {
                 path : 'register',
                 element : <Register></Register>
+            },
+            {
+                path : 'addfood',
+                element : <PrivateRoute><AddFood></AddFood></PrivateRoute>
             }
         ]
     }
