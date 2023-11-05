@@ -1,12 +1,19 @@
 import useAuth from "../hooks/useAuth";
 import Swal from 'sweetalert2'
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const AddFood = () => {
 
     const { user } = useAuth();
     const { displayName, email, photoURL } = user;
-    
+
+    const [expireDate, setExpireDate] = useState(new Date());
+
+    // console.log(startDate);
+
     const handleAddFood = (e) => {
         e.preventDefault();
 
@@ -22,22 +29,23 @@ const AddFood = () => {
         const status = 'available';
 
         const newFood = {
-            foodImage, foodName ,quantity, location, notes, donatorImage, donatorName, donatorEMail, status}
+            foodImage, foodName, quantity, location, notes, expireDate, donatorImage, donatorName, donatorEMail, status
+        }
 
-            fetch('http://localhost:5000/foods',{
-                method : 'POST',
-                headers : {
-                    'content-type' : 'application/json'
-                },
-                body :JSON.stringify(newFood)
-            })
+        fetch('http://localhost:5000/foods', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newFood)
+        })
             .then(res => res.json())
-            .then(data =>{
+            .then(data => {
                 console.log(data);
-                if(data.insertedId){
+                if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Product Added Successfully',
+                        text: 'Food Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
@@ -71,6 +79,10 @@ const AddFood = () => {
                         <label className="text-xl" htmlFor="price">Additional Notes: </label>
                         <input className=" w-full h-10 rounded-lg border border-orange-200 border-" type="text" name="notes" id="notes" placeholder="  additional notes" />
                     </div>
+                    <div className="max-w-4xl mx-auto flex flex-col gap-3">
+                        <label className="text-xl "> Expire Date</label>
+                        <DatePicker selected={expireDate} onChange={(date) => setExpireDate(date)} />
+                    </div>
                     {/* <div>
                         <h2>Donor Information</h2>
                     </div> */}
@@ -78,15 +90,15 @@ const AddFood = () => {
                     <br />
                     <div className="max-w-4xl mx-auto flex flex-col gap-3">
                         <label className="text-xl" htmlFor="description">Donator Image : </label>
-                        <input className=" w-full h-10 rounded-lg border border-orange-200 border-" type="text" name="donatorImage" id="image" defaultValue={ photoURL} />
+                        <input className=" w-full h-10 rounded-lg border border-orange-200 border-" type="text" name="donatorImage" id="image" defaultValue={photoURL} />
                     </div>
                     <div className="max-w-4xl mx-auto flex flex-col gap-3">
                         <label className="text-xl" htmlFor="name">Name : </label>
-                        <input className=" w-full h-10 rounded-lg border border-orange-200 border-" type="text" name="donatorName" id="name" defaultValue={ displayName} />
+                        <input className=" w-full h-10 rounded-lg border border-orange-200 border-" type="text" name="donatorName" id="name" defaultValue={displayName} />
                     </div>
                     <div className="max-w-4xl mx-auto flex flex-col gap-3">
                         <label className="text-xl" htmlFor="mail">Email : </label>
-                        <input className=" w-full h-10 rounded-lg border border-orange-200 border-" type="text" name="donatorMail" id="mail" defaultValue={ email} />
+                        <input className=" w-full h-10 rounded-lg border border-orange-200 border-" type="text" name="donatorMail" id="mail" defaultValue={email} />
                     </div>
                     <div className="max-w-4xl mx-auto flex flex-col gap-3">
                         <label className="text-xl" htmlFor="status">Choose status:</label>

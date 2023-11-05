@@ -41,6 +41,8 @@ const MainLayout = ({ children }) => {
                                 <div className='flex gap-2'>
                                     <NavLink to="/"
                                         className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Home</NavLink>
+                                    <NavLink to="availableFoods"
+                                        className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}> Available Foods</NavLink>
                                     <NavLink to="addfood"
                                         className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Add Food</NavLink>
 
