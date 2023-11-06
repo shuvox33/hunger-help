@@ -26,10 +26,11 @@ Modal.setAppElement('#root');
 const AvailableFoodDetail = () => {
 
     const { user } = useAuth();
-    const { email } = user;
+    const {displayName, photoURL, email } = user;
+    console.log(user);
 
     const food = useLoaderData();
-    const { _id, foodImage, foodName, quantity, location, expireDate, donatorName, donatorEMail } = food;
+    const { _id, foodImage, foodName, quantity, location, expireDate, donatorName, donatorEMail, status } = food;
 
     const formattedExpireDate = new Date(expireDate).toLocaleDateString('en-US', {
         year: 'numeric',
@@ -62,7 +63,7 @@ const AvailableFoodDetail = () => {
 
         const requestDate = moment().format("MMM Do YY");
 
-        const requestFood = {food_id : _id, foodImage, foodName, location, formattedExpireDate, donatorName, donatorEMail, email, requestDate, donation, addiNotes }
+        const requestFood = {food_id : _id, foodImage, foodName, location, formattedExpireDate, requestDate, donatorName, donatorEMail, reqMail : email, reqName: displayName, reqImg: photoURL,  donation, addiNotes, status}
 
         fetch('http://localhost:5000/reqfoods', {
             method: 'POST',

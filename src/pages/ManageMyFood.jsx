@@ -14,9 +14,7 @@ const ManageMyFood = () => {
     const userAddedFoods = allFoods.filter(food => food.donatorEMail === user.email);
     const [userSelectedFoods, setUserSelectedFoods] = React.useState(userAddedFoods)
 
-    // React.useEffect(() => {
-    //     setUserSelectedFoods(userAddedFoods);
-    // }, [userAddedFoods]);
+
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -68,7 +66,9 @@ const ManageMyFood = () => {
                         <button className="btn btn-primary btn-sm">Update</button>
                     </NavLink>
                     <button onClick={() => handleDelete(row.original._id)} className="btn btn-primary btn-sm">Delete</button>
-                    <button className="btn btn-primary btn-sm">Manage</button>
+                    <NavLink to={`manage/${row.original._id}`}>
+                        <button className="btn btn-primary btn-sm">Manage</button>
+                    </NavLink>
                 </div>
             ),
         },
