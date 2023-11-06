@@ -99,10 +99,21 @@ const MainLayout = ({ children }) => {
                     <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                     <div className="menu p-4 w-80 min-h-full bg-base-200">
                         {/* Sidebar content here */}
-                        <NavLink to="home"
-                            className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Home</NavLink>
-                        <NavLink to="login"
-                            className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Login/Signup</NavLink>
+                        <NavLink to="/"
+                                        className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Home</NavLink>
+                                    <NavLink to="availableFoods"
+                                        className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}> Available Foods</NavLink>
+                                    <NavLink to="addfood"
+                                        className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Add Food</NavLink>
+
+                                    {
+                                        user ? <>
+                                            <button onClick={handleLogOut} className=" ml-4 px-3 py-1 btn btn-ghost btn-sm">Log Out</button>
+                                            {/* <span className=''>{user.displayName}</span> */}
+                                            
+                                        </>
+                                            : <NavLink to="login" className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Login/Signup</NavLink>
+                                    }
                     </div>
                 </div>
             </div>

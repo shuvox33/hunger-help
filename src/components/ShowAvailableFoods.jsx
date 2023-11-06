@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 const ShowAvailableFoods = ({ food }) => {
 
-    const { foodImage, foodName, quantity, location, notes, expireDate, donatorImage, donatorName } = food;
+    const { _id, foodImage, foodName, quantity, location, notes, expireDate, donatorImage, donatorName } = food;
 
     const formattedExpireDate = new Date(expireDate).toLocaleDateString('en-US', {
         year: 'numeric',
@@ -26,7 +27,7 @@ const ShowAvailableFoods = ({ food }) => {
                         <h3>Expire Date : {formattedExpireDate}</h3>
                     </div>
                     <div>
-                    <h3>Location : {location}</h3>
+                        <h3>Location : {location}</h3>
                     </div>
                     <div>
                         <h3 className='bg-white rounded-md px-2'>{notes}</h3>
@@ -38,8 +39,9 @@ const ShowAvailableFoods = ({ food }) => {
                         <h3>Donator Name : {donatorName}</h3>
                     </div>
                     <div className=''>
-                        
-                        <button className='btn btn-primary btn-sm'>View Details</button>
+                        <NavLink to={`details/${_id}`}>
+                            <button className='btn btn-primary btn-sm'>View Details</button>
+                        </NavLink>
                     </div>
                 </div>
             </div>
