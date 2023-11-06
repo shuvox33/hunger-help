@@ -76,7 +76,7 @@ const UpdateFood = () => {
 
 
                     <div className="text-center mt-5">
-                        <button className=" text-white bg-orange-500 px-4 py-2 rounded-lg ">Add Food</button>
+                        <button className=" text-white bg-orange-500 px-4 py-2 rounded-lg ">Update Food</button>
                     </div>
                 </form>
             </div>
