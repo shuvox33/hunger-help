@@ -62,7 +62,7 @@ const AvailableFoodDetail = () => {
 
         const requestDate = moment().format("MMM Do YY");
 
-        const requestFood = {_id, foodImage, foodName, location, formattedExpireDate, donatorName, donatorEMail, email, requestDate, donation, addiNotes }
+        const requestFood = {food_id : _id, foodImage, foodName, location, formattedExpireDate, donatorName, donatorEMail, email, requestDate, donation, addiNotes }
 
         fetch('http://localhost:5000/reqfoods', {
             method: 'POST',
@@ -140,13 +140,19 @@ const AvailableFoodDetail = () => {
                                                 </div>
 
                                                 <div className="flex gap-2 items-center">
+                                                    <h3 className="w-2/5">User Email </h3>
+                                                    <input readOnly type="text" defaultValue={email} name="userEmail" className="input input-bordered input-success w-96 max-w-xs" />
+                                                </div>
+
+                                                <div className="flex gap-2 items-center">
                                                     <h3 className="w-2/5">Donator Name </h3>
                                                     <input readOnly type="text" defaultValue={donatorName} name="DonatorName" className="input input-bordered input-success w-96 max-w-xs" />
                                                 </div>
                                                 <div className="flex gap-2 items-center">
-                                                    <h3 className="w-2/5">User Email </h3>
-                                                    <input readOnly type="text" defaultValue={email} name="userEmail" className="input input-bordered input-success w-96 max-w-xs" />
+                                                    <h3 className="w-2/5">Donator Email </h3>
+                                                    <input readOnly type="text" defaultValue={donatorEMail} name="DonatorEmail" className="input input-bordered input-success w-96 max-w-xs" />
                                                 </div>
+
 
                                                 <div className="flex gap-2 items-center">
                                                     <h3 className="w-2/5">Pickup Location </h3>

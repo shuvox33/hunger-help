@@ -7,6 +7,8 @@ import PrivateRoute from "./PrivateRoute";
 import AddFood from "../pages/AddFood";
 import AvailableFoods from "../pages/AvailableFoods";
 import AvailableFoodDetail from "../components/AvailableFoodDetail";
+import ManageMyFood from "../pages/ManageMyFood";
+import UpdateFood from "../components/UpdateFood";
 
 const routes = createBrowserRouter([
     {
@@ -32,12 +34,22 @@ const routes = createBrowserRouter([
             },
             {
                 path : 'availableFoods',
-                element : <PrivateRoute><AvailableFoods></AvailableFoods></PrivateRoute>,
+                element : <AvailableFoods></AvailableFoods>,
                 loader :() => fetch('http://localhost:5000/foods')
             },
             {
                 path : "availableFoods/details/:id",
                 element : <PrivateRoute><AvailableFoodDetail></AvailableFoodDetail></PrivateRoute>,
+                loader :({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+            },
+            {
+                path : "managemyfoods",
+                element : <PrivateRoute><ManageMyFood></ManageMyFood></PrivateRoute>,
+                loader :() => fetch('http://localhost:5000/foods')
+            },
+            {
+                path : "managemyfoods/update/:id",
+                element : <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
                 loader :({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
             }
         ]
