@@ -1,9 +1,18 @@
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import ShowAvailableFoods from "../components/ShowAvailableFoods";
+import { useEffect, useState } from "react";
 
 const AvailableFoods = () => {
 
-    const foods = useLoaderData();
+    const [foods, setFoods] = useState([])
+
+    useEffect(() => {
+        fetch('https://a11-hunger-help-server.vercel.app/foods')
+            .then(res => res.json())
+            .then(data => setFoods(data));
+    }, [])
+
+    // const foods = useLoaderData();
 
 
     return (

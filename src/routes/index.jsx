@@ -37,7 +37,7 @@ const routes = createBrowserRouter([
             {
                 path : 'availableFoods',
                 element : <AvailableFoods></AvailableFoods>,
-                loader :() => fetch('https://a11-hunger-help-server.vercel.app/foods')
+                // loader :() => fetch('https://a11-hunger-help-server.vercel.app/foods')
             },
             {
                 path : "availableFoods/details/:id",

@@ -45,8 +45,8 @@ const MyFoodRequest = () => {
             {
                 totalReq.map(data =>
                     <>
-                        <div >
-                            <div key={data.id} className=" card w-96 bg-base-200 shadow-xl">
+                        <div key={data.id}>
+                            <div  className=" card w-96 bg-base-200 shadow-xl">
                                 <figure className="px-10 pt-10">
                                     {/* <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" /> */}
                                 </figure>
