@@ -47,8 +47,12 @@ const MainLayout = ({ children }) => {
                                         className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Add Food</NavLink>
 
                                     {
-                                        user && <NavLink to="managemyfoods"
-                                            className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Manage My Foods</NavLink>
+                                        user && <>
+                                            <NavLink to="managemyfoods"
+                                                className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Manage My Foods</NavLink>
+                                            <NavLink to={`myfoodrequest/${user.email}`}
+                                                className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>My Food Request</NavLink>
+                                        </>
                                     }
 
                                     {

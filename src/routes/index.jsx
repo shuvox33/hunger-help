@@ -10,6 +10,7 @@ import AvailableFoodDetail from "../components/AvailableFoodDetail";
 import ManageMyFood from "../pages/ManageMyFood";
 import UpdateFood from "../components/UpdateFood";
 import ManageSingleFood from "../components/ManageSingleFood";
+import MyFoodRequest from "../pages/MyFoodRequest";
 
 const routes = createBrowserRouter([
     {
@@ -36,27 +37,33 @@ const routes = createBrowserRouter([
             {
                 path : 'availableFoods',
                 element : <AvailableFoods></AvailableFoods>,
-                loader :() => fetch('http://localhost:5000/foods')
+                loader :() => fetch('https://a11-hunger-help-server.vercel.app/foods')
             },
             {
                 path : "availableFoods/details/:id",
                 element : <PrivateRoute><AvailableFoodDetail></AvailableFoodDetail></PrivateRoute>,
-                loader :({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/foods/${params.id}`)
             },
             {
                 path : "managemyfoods",
                 element : <PrivateRoute><ManageMyFood></ManageMyFood></PrivateRoute>,
-                loader :() => fetch('http://localhost:5000/foods')
+                loader :() => fetch('https://a11-hunger-help-server.vercel.app/foods')
             },
             {
                 path : "managemyfoods/update/:id",
                 element : <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
-                loader :({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/foods/${params.id}`)
             },
             {
                 path : "managemyfoods/manage/:id",
                 element : <PrivateRoute><ManageSingleFood></ManageSingleFood></PrivateRoute>,
-                loader :({params}) => fetch(`http://localhost:5000/reqfoods?foodId=${params.id}`)
+                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/reqfoods?foodId=${params.id}`)
+
+            },
+            {
+                path : "myfoodrequest/:mail",
+                element : <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>,
+                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/reqfoods?reqEmail=${params.mail}`)
 
             }
         ]
