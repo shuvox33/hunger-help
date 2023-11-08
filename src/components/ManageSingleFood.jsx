@@ -6,7 +6,6 @@ const ManageSingleFood = () => {
 
     const foodReq = useLoaderData();
 
-
     return (
         
         <div>

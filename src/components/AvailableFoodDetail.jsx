@@ -27,7 +27,6 @@ const AvailableFoodDetail = () => {
 
     const { user } = useAuth();
     const {displayName, photoURL, email } = user;
-    console.log(user);
 
     const food = useLoaderData();
     const { _id, foodImage, foodName, quantity, location, expireDate, donatorName, donatorEMail, status } = food;

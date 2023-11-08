@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
             {
                 path : 'availableFoods',
                 element : <AvailableFoods></AvailableFoods>,
-                // loader :() => fetch('http://localhost:5000/foods')
+                // loader :() => fetch('http://localhost:5000')
             },
             {
                 path : "availableFoods/details/:id",
@@ -59,13 +59,13 @@ const routes = createBrowserRouter([
             {
                 path : "managemyfoods/manage/:id",
                 element : <PrivateRoute><ManageSingleFood></ManageSingleFood></PrivateRoute>,
-                loader :({params}) => fetch(`http://localhost:5000/reqfoods?foodId=${params.id}`)
+                loader :({params}) => fetch(`http://localhost:5000/reqfoods?foodId=${params.id}`,{credentials : 'include'})
 
             },
             {
                 path : "myfoodrequest/:mail",
                 element : <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>,
-                loader :({params}) => fetch(`http://localhost:5000/reqfoods?reqEmail=${params.mail}`,{credentials : 'include'})
+                loader :({params}) => fetch(`http://localhost:5000/reqfoods?reqEmail=${params.mail}`)
 
             }
         ]
