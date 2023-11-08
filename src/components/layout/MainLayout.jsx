@@ -43,8 +43,7 @@ const MainLayout = ({ children }) => {
                                         className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Home</NavLink>
                                     <NavLink to="availableFoods"
                                         className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}> Available Foods</NavLink>
-                                    <NavLink to="addfood"
-                                        className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Add Food</NavLink>
+
 
                                     {
                                         user && <>
@@ -52,6 +51,8 @@ const MainLayout = ({ children }) => {
                                                 className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Manage My Foods</NavLink>
                                             <NavLink to={`myfoodrequest/${user.email}`}
                                                 className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>My Food Request</NavLink>
+                                                                                    <NavLink to="addfood"
+                                        className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Add Food</NavLink>
                                         </>
                                     }
 
