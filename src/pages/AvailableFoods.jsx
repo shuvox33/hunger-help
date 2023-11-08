@@ -13,7 +13,7 @@ const AvailableFoods = () => {
     const [searchText, setSearchText] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods')
+        fetch('https://a11-hunger-help-server.vercel.app/foods')
             .then(res => res.json())
             .then(data => {
                 setFoods(data);
@@ -56,7 +56,7 @@ const AvailableFoods = () => {
                     <button onClick={handleSort} className="btn btn-primary btn-sm">Sort</button>
                 </div>
             </div>
-            <div className="grid grid-cols-4 mt-10 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-5">
                 {
                     tempFoods.map(food => <ShowAvailableFoods key={food._id} food={food}></ShowAvailableFoods>)
                 }

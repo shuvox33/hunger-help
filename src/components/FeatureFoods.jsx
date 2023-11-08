@@ -7,7 +7,7 @@ const FeatureFoods = () => {
     const [sortedFoods, setSortedFoods] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/sortedfoods')
+        fetch('https://a11-hunger-help-server.vercel.app/sortedfoods')
             .then(res => res.json())
             .then(data => setSortedFoods(data))
     }, [])
@@ -15,7 +15,7 @@ const FeatureFoods = () => {
     return (
         <div>
             <h3 className="text-3xl font-semibold text-center mt-5">Featured Foods</h3>
-            <div className=" max-w-7xl mx-auto grid grid-cols-4 mt-10 gap-5">
+            <div className=" max-w-7xl mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5">
                 {
                     sortedFoods.map(food => <ShowSortedFood key={food._id} food={food}></ShowSortedFood>)
                 }

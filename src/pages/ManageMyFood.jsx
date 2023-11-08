@@ -30,7 +30,7 @@ const ManageMyFood = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/foods/${id}`, {
+                fetch(`https://a11-hunger-help-server.vercel.app/foods/${id}`, {
                     method: 'DELETE'
 
                 })
@@ -80,7 +80,7 @@ const ManageMyFood = () => {
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
 
     return (
-        <div>
+        <div className="max-w-7xl mx-auto mt-10">
             <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map((headerGroups, index) => (

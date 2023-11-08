@@ -40,13 +40,13 @@ const AuthProvider = ({children}) => {
                 setUser(currentUser);
 
                 if(currentUser){
-                    axios.post('http://localhost:5000/jwt',loggedUser,{withCredentials : true})
+                    axios.post('https://a11-hunger-help-server.vercel.app/jwt',loggedUser,{withCredentials : true})
                     .then(res =>{
                         console.log('token', res.data);
                     })
                 }
                 else{
-                    axios.post('http://localhost:5000/logout', loggedUser, {withCredentials : true})
+                    axios.post('https://a11-hunger-help-server.vercel.app/logout', loggedUser, {withCredentials : true})
                     .then(res => {
                         console.log(res.data);
                     })

@@ -15,7 +15,7 @@ const SingleFoodReq = ({ req }) => {
 
         const updatedStatus = { status: 'delivered' }
 
-        fetch(`http://localhost:5000/reqFoods/${_id}`, {
+        fetch(`https://a11-hunger-help-server.vercel.app/reqFoods/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -37,7 +37,7 @@ const SingleFoodReq = ({ req }) => {
             })
 
             
-        fetch(`http://localhost:5000/foods/${food_id}`, {
+        fetch(`https://a11-hunger-help-server.vercel.app/foods/${food_id}`, {
             method: 'DELETE'
 
         })

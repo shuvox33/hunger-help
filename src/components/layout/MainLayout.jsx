@@ -80,18 +80,20 @@ const MainLayout = ({ children }) => {
                     <footer className='mt-14'>
                         <footer className="footer p-10 bg-base-300 text-base-content">
                             <nav>
-                                <header className="footer-title">Services</header>
-                                <a className="link link-hover">Branding</a>
-                                <a className="link link-hover">Design</a>
-                                <a className="link link-hover">Marketing</a>
-                                <a className="link link-hover">Advertisement</a>
+                                <div className='text-5xl text-green-500 pl-20'><PiBowlFoodFill></PiBowlFoodFill></div>
+                                <div className="flex-1 px-2 mx-2 text-3xl ">Hunger <span className='text-green-500'>Help</span> </div>
+                                <p>Copyright © 2023 - All right reserved</p>
                             </nav>
                             <nav>
-                                <header className="footer-title">Company</header>
-                                <a className="link link-hover">About us</a>
-                                <a className="link link-hover">Contact</a>
-                                <a className="link link-hover">Jobs</a>
-                                <a className="link link-hover">Press kit</a>
+                                <header className="footer-title">Contact</header>
+                                <a className="link link-hover">mama@mami.com</a>
+                                <a className="link link-hover">Phon : +099-433255</a>
+                            </nav>
+                            <nav>
+                                <header className="footer-title">Address</header>
+                                <a className="link link-hover">AbuDhabi</a>
+                                <a className="link link-hover">Dubai</a>
+
                             </nav>
                             <nav>
                                 <header className="footer-title">Social</header>
@@ -115,8 +117,13 @@ const MainLayout = ({ children }) => {
                         <NavLink to="addfood"
                             className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Add Food</NavLink>
                         {
-                            user && <NavLink to="managemyfoods"
-                                className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Manage My Foods</NavLink>
+                            user && <>
+                                <NavLink to="managemyfoods"
+                                    className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>Manage My Foods</NavLink>
+                                <NavLink to={`myfoodrequest/${user.email}`}
+                                    className={({ isActive }) => isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'}>My Food Request</NavLink>
+                            </>
+
                         }
 
                         {
