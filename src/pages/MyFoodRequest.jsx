@@ -55,12 +55,12 @@ const MyFoodRequest = () => {
                                     {/* <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" /> */}
                                 </figure>
                                 <div className="card-body items-center text-center">
-                                    <h2 className="card-title">{data.donatorName}</h2>
-                                    <p>{data.location}</p>
-                                    <p>{data.formattedExpireDate}</p>
-                                    <p>{data.requestDate}</p>
-                                    <p>{data.donation}</p>
-                                    <p>{data.status}</p>
+                                    <h2 className="card-title">Donator :{data.donatorName}</h2>
+                                    <p>Location :{data.location}</p>
+                                    <p>Exp. Date :{data.formattedExpireDate}</p>
+                                    <p>Req. Date :{data.requestDate}</p>
+                                    <p>Donation :{data.donation}</p>
+                                    <p className=" px-3 py-1 rounded-lg font-semibold bg-green-200">Status :{data.status}</p>
 
                                     {
                                         (data.status === 'available') && <button onClick={()=>handleCancelReq(data._id)} className="btn btn-primary">Cancel Request</button>
