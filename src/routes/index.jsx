@@ -39,33 +39,33 @@ const routes = createBrowserRouter([
             {
                 path : 'availableFoods',
                 element : <AvailableFoods></AvailableFoods>,
-                // loader :() => fetch('https://a11-hunger-help-server.vercel.app/foods')
+                // loader :() => fetch('http://localhost:5000/foods')
             },
             {
                 path : "availableFoods/details/:id",
                 element : <PrivateRoute><AvailableFoodDetail></AvailableFoodDetail></PrivateRoute>,
-                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/foods/${params.id}`)
+                loader :({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
             },
             {
                 path : "managemyfoods",
                 element : <PrivateRoute><ManageMyFood></ManageMyFood></PrivateRoute>,
-                loader :() => fetch('https://a11-hunger-help-server.vercel.app/foods')
+                loader :() => fetch('http://localhost:5000/foods')
             },
             {
                 path : "managemyfoods/update/:id",
                 element : <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
-                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/foods/${params.id}`)
+                loader :({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
             },
             {
                 path : "managemyfoods/manage/:id",
                 element : <PrivateRoute><ManageSingleFood></ManageSingleFood></PrivateRoute>,
-                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/reqfoods?foodId=${params.id}`)
+                loader :({params}) => fetch(`http://localhost:5000/reqfoods?foodId=${params.id}`)
 
             },
             {
                 path : "myfoodrequest/:mail",
                 element : <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>,
-                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/reqfoods?reqEmail=${params.mail}`)
+                loader :({params}) => fetch(`http://localhost:5000/reqfoods?reqEmail=${params.mail}`,{credentials : 'include'})
 
             }
         ]

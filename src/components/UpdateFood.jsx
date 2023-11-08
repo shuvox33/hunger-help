@@ -23,7 +23,7 @@ const UpdateFood = () => {
         const notes = result.notes.value;
         const updatedFood = {foodImage, foodName, quantity, location, notes, expireDate};
 
-        fetch(`https://a11-hunger-help-server.vercel.app/foods/${_id}`, {
+        fetch(`http://localhost:5000/foods/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

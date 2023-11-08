@@ -36,8 +36,9 @@ const AddFood = () => {
             foodImage, foodName, quantity, location, notes, expireDate, donatorImage, donatorName, donatorEMail, status
         }
 
-        fetch('https://a11-hunger-help-server.vercel.app/foods', {
+        fetch('http://localhost:5000/foods', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'content-type': 'application/json'
             },

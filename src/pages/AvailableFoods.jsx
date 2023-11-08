@@ -13,7 +13,7 @@ const AvailableFoods = () => {
     const [searchText, setSearchText] = useState('');
 
     useEffect(() => {
-        fetch('https://a11-hunger-help-server.vercel.app/foods')
+        fetch('http://localhost:5000/foods')
             .then(res => res.json())
             .then(data => {
                 setFoods(data);

@@ -24,7 +24,7 @@ const MyFoodRequest = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://a11-hunger-help-server.vercel.app/reqfoods/${id}`, {
+                fetch(`http://localhost:5000/reqfoods/${id}`, {
                     method: 'DELETE'
 
                 })
