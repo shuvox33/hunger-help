@@ -1,11 +1,15 @@
 import useAuth from "../hooks/useAuth";
 import Swal from 'sweetalert2'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
 const AddFood = () => {
+
+    useEffect(()=>{
+        document.title = "Hunger-Help | AddFood"
+    },[])
 
     const { user } = useAuth();
     const { displayName, email, photoURL } = user;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
@@ -6,6 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import useAuth from "../hooks/useAuth";
 
 const Register = () => {
+
+    useEffect(()=>{
+        document.title = "Hunger-Help | Registration"
+    },[])
 
     // const {createUser} = useContext(AuthContext);
     const {createUser} = useAuth()

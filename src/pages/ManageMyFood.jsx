@@ -8,6 +8,9 @@ import Swal from 'sweetalert2'
 
 
 const ManageMyFood = () => {
+    React.useEffect(()=>{
+        document.title = "Hunger-Help | Manage MyFoods"
+    },[])
 
     const { user } = useAuth();
     const allFoods = useLoaderData();

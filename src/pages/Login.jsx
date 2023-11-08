@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import { FcGoogle } from 'react-icons/fc';
@@ -6,6 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import useAuth from "../hooks/useAuth";
 
 const Login = () => {
+
+    useEffect(()=>{
+        document.title = "Hunger-Help | Login"
+    },[])
     const { logInUser, logInWithGoogle } = useAuth();
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();

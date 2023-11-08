@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 
 const MyFoodRequest = () => {
-    const reqData = useLoaderData();
 
+    useEffect(()=>{
+        document.title = "Hunger-Help | MyFood Request"
+    },[])
+
+    const reqData = useLoaderData();
     const [totalReq, setTotalReq] = useState(reqData)
 
     const handleCancelReq = (id) => {

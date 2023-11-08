@@ -3,9 +3,13 @@ import FeatureFoods from "../components/FeatureFoods";
 import Lottie from 'lottie-react';
 import animationData from '../../public/Animation.json';
 import animation1Data from '../../public/Animation 1.json';
+import { useEffect } from "react";
 
 
 const Home = () => {
+    useEffect(()=>{
+        document.title = "Hunger-Help | Home"
+    },[])
     return (
         <div>
             <Banner></Banner>
@@ -36,7 +40,6 @@ const Home = () => {
             </div>
 
             
-
         </div>
     );
 };

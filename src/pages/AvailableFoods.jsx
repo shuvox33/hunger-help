@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 
 const AvailableFoods = () => {
 
+    useEffect(()=>{
+        document.title = "Hunger-Help | AvailableFoods"
+    },[])
+
     const [foods, setFoods] = useState([]);
     const [tempFoods, setTempFoods] = useState([]);
     const [searchText, setSearchText] = useState('');
