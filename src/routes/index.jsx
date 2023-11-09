@@ -59,7 +59,7 @@ const routes = createBrowserRouter([
             {
                 path : "managemyfoods/manage/:id",
                 element : <PrivateRoute><ManageSingleFood></ManageSingleFood></PrivateRoute>,
-                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/reqfoods?foodId=${params.id}`)
+                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/reqfoods?foodId=${params.id}`,{credentials : 'include'})
 
             },
             {
