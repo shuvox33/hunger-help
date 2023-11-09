@@ -59,13 +59,13 @@ const routes = createBrowserRouter([
             {
                 path : "managemyfoods/manage/:id",
                 element : <PrivateRoute><ManageSingleFood></ManageSingleFood></PrivateRoute>,
-                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/reqfoods?foodId=${params.id}`,{credentials : 'include'})
+                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/reqfoods?foodId=${params.id}`)
 
             },
             {
                 path : "myfoodrequest/:mail",
                 element : <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>,
-                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/reqfoods?reqEmail=${params.mail}`)
+                loader :({params}) => fetch(`https://a11-hunger-help-server.vercel.app/reqfoods?reqEmail=${params.mail}`,{credentials : 'include'})
 
             }
         ]
